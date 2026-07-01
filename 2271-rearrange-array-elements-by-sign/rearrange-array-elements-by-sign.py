@@ -4,20 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        
+
         n = len(nums)
-        ans = [0] * n
-
-        pos = 0
-        neg = 1
-
-        for i in nums:
-            if i > 0:
-                ans[pos] = i
+        result = [0] * n
+        pos, neg = 0, 1
+        for i in range(0, n):
+            if nums[i] >= 0:
+                result[pos] = nums[i]
                 pos += 2
-
             else:
-                ans[neg] = i
+                result[neg] = nums[i]
                 neg += 2
-
-        return ans        
+        return result            
+        
+             

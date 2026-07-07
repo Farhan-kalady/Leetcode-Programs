@@ -6,6 +6,6 @@ class Solution(object):
         """
         
         n = len(nums)
-        expect_sum = n * (n + 1) // 2
-        actual_sum = sum(nums)
-        return expect_sum - actual_sum
+        expect = n * (n + 1) // 2
+        actual = sum(nums)
+        return expect - actual

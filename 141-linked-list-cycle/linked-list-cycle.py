@@ -8,13 +8,12 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head:
             return False
-        pointer = head
-        visited = set()
-        visited.add(head)
-        while True:
-            pointer = pointer.next
-            if not pointer:
-                return False
-            if pointer in visited:
+        i = head
+        j = head
+        while j is not None and j.next is not None:
+            i = i.next
+            j = j.next.next
+
+            if i == j:
                 return True
-            visited.add(pointer)        
+        return False           

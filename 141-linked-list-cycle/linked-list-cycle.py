@@ -6,7 +6,8 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        
+        if not head:
+            return False
         i = head
         j = head
         while j is not None and j.next is not None:

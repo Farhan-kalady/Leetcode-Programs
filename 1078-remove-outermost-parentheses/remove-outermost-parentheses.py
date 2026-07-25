@@ -1,17 +1,19 @@
-class Solution:
-    def removeOuterParentheses(self, s: str) -> str:
-        result = ""
+class Solution(object):
+    def removeOuterParentheses(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        n = len(s)
         count = 0
-        for ch in s:
-            if ch == "(":
+        res = ""
+        for i in s:
+            if i == '(':
                 count += 1
                 if count > 1:
-                  result += ch
+                    res += i
             else:
                 count -= 1
                 if count > 0:
-                    result += ch
-        return result
-                    
-
-                   
+                    res += i
+        return res                 

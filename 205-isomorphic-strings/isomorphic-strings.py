@@ -1,5 +1,12 @@
-class Solution:
-    def isIsomorphic(self, s: str, t: str) -> bool:
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t):
+            return False
         stot = {}
         ttos = {}
         for i in range(len(s)):
@@ -9,10 +16,15 @@ class Solution:
                 if stot[char_s] != char_t:
                     return False
             else:
-                stot[char_s] = char_t 
+                stot[char_s] = char_t
             if char_t in ttos:
                 if ttos[char_t] != char_s:
                     return False
             else:
                 ttos[char_t] = char_s            
-        return True               
+
+        return True       
+
+
+
+        

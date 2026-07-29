@@ -1,12 +1,15 @@
-class Solution:
-    def maxDepth(self, s: str) -> int:
-        max_brac = 0
-        curr_brac = 0
+class Solution(object):
+    def maxDepth(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        max_depth = 0
+        curr_depth =0
         for brac in s:
-            if brac == "(" :
-                curr_brac += 1
-                max_brac = max(max_brac, curr_brac)
-            elif brac == ")":
-                curr_brac -= 1
-    
-        return max_brac       
+            if brac == '(':
+                curr_depth += 1
+                max_depth = max(max_depth, curr_depth)
+            elif brac == ')':
+                curr_depth -= 1
+        return max_depth            

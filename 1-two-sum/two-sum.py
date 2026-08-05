@@ -1,12 +1,10 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        
-        for i in range(0, len(nums) - 1):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i,j]
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_map = {}
+        for index, value in enumerate(nums):
+            need = target - value
+            if need in hash_map:
+                return [index, hash_map[need]]
+            else:
+                hash_map[value] = index
+        return -1        

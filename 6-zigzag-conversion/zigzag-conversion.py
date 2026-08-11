@@ -25,4 +25,4 @@ class Solution(object):
         ans = ""
         for row in mat:
             ans += ''.join(row)
-        return ans                          
+        return ans

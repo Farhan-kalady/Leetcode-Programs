@@ -12,13 +12,13 @@ class Solution(object):
         for right in range(len(nums)):
             if nums[right] == 0:
                 zeros += 1
-            while zeros > k:
+            if zeros > k:
                 if nums[left] == 0:
                     zeros -= 1
                 left += 1
             if zeros <= k:
                 maxi = max(maxi, right - left + 1)
-                right += 1
+            right += 1
         return maxi        
 
         

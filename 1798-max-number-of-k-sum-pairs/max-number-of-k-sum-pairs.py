@@ -1,24 +1,14 @@
-class Solution(object):
-    def maxOperations(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        hashmap = {}
         count = 0
-        n = len(nums)
-        left = 0
-        nums.sort()
-        right = n - 1
-        while left < right:
-            total = nums[left] + nums[right]
-            if total == k:
+        for num in nums:
+            complement = k - num
+            if hashmap.get(complement, 0) > 0:
                 count += 1
-                left += 1
-                right -= 1
-            elif total < k:
-                left += 1
-            else:
-                right -= 1
-        return count                 
-                  
+                hashmap[complement] -= 1
+            else:    
+          
+                hashmap[num] = hashmap.get(num, 0) + 1
+        return count        
+        

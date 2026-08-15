@@ -4,9 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        my_set = set()
-        for i in range(len(nums)):
-            if nums[i] in my_set:
+        n = len(nums)
+        nums = sorted(nums)
+        left = 0
+        right = 1
+        while right < n:
+            if nums[left] == nums[right]:
                 return True
-            my_set.add(nums[i])
-        return False        
+            else:
+                left += 1
+                right += 1
+        return False            
+            

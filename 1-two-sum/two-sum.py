@@ -1,10 +1,14 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash_map = {}
-        for index, value in enumerate(nums):
-            need = target - value
-            if need in hash_map:
-                return [index, hash_map[need]]
-            else:
-                hash_map[value] = index
-        return -1        
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashmap = {}
+        for i, value in enumerate(nums):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[value] = i 
+

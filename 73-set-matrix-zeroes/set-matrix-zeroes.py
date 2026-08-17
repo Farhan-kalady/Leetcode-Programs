@@ -4,35 +4,26 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
-        m, n = len(matrix), len(matrix[0])
-
-        first_row_zero = False
-        first_col_zero = False
-
-        for j in range(n):
-            if matrix[0][j] == 0:
-                first_row_zero = True
-
-        for i in range(m):
-            if matrix[i][0] == 0:
-                first_col_zero = True
-
-        for i in range(1, m):
-            for j in range(1, n):
+        row = len(matrix)
+        col = len(matrix[0])
+        for i in range(row):
+            for j in range(col):
                 if matrix[i][j] == 0:
-                    matrix[i][0] = 0
-                    matrix[0][j] = 0
+                    self.infinity(matrix, i, j)
+        for i in range(row):
+            for j in range(col):
+                if matrix[i][j] == float("inf"):
+                    matrix[i][j] = 0            
+    def infinity(self, matrix, row, col):
+        r = len(matrix)
+        c = len(matrix[0])
+        for i in range(0, r):
+            if matrix[i][col] !=0 :
+                matrix[i][col] = float("inf")
+        for j in range(0, c):
+            if matrix[row][j] != 0:
+                matrix[row][j] = float("inf")
 
-        for i in range (1, m):
-            for j in range(1, n):
-                if  matrix[i][0] == 0 or matrix[0][j] == 0:
-                    matrix[i][j] = 0
 
-        if first_row_zero:
-            for j in range(n):
-                matrix[0][j] = 0
 
-        if first_col_zero:
-            for i in range(m):
-                matrix[i][0] = 0
-
+        

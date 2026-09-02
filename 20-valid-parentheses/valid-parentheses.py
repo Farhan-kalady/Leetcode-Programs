@@ -1,9 +1,5 @@
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+class Solution:
+    def isValid(self, s: str) -> bool:
         stack = []
         for ch in s:
             if ch == "(" or ch == "{" or ch == "[":
@@ -16,5 +12,5 @@ class Solution(object):
                     continue
                 else:
                     return False
-        return len(stack) == 0                   
-
+        return len(stack) == 0                        
+        

@@ -7,8 +7,8 @@ class Solution(object):
         """
         hashmap = {}
         for i, value in enumerate(nums):
-            complement = target - nums[i]
-            if complement in hashmap:
-                return [i, hashmap[complement]]
-            hashmap[value] = i 
-
+            need = target - nums[i]
+            if need in hashmap:
+                return [i, hashmap[need]]
+            else:    
+                hashmap[value] = i    

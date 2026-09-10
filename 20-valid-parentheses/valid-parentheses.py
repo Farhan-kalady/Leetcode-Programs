@@ -1,16 +1,21 @@
-class Solution:
-    def isValid(self, s: str) -> bool:
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
         stack = []
-        for ch in s:
-            if ch == "(" or ch == "{" or ch == "[":
-                stack.append(ch)
+        for i in s:
+            if i == "(" or i == "{" or i == "[":
+                stack.append(i)
             else:
                 if len(stack) == 0:
                     return False
-                bracket = stack.pop()
-                if ((ch == ")" and bracket == "(") or (ch == "}" and bracket == "{") or (ch == "]" and bracket == "[")):
+                
+                bucket = stack.pop()
+                if ((i == ")" and bucket == "(") or (i == "}" and bucket == "{") or (i == "]" and bucket == "[")):
                     continue
                 else:
                     return False
-        return len(stack) == 0                        
-        
+        return len(stack) == 0                                             
+

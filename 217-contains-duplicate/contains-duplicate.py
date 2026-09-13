@@ -4,15 +4,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        n = len(nums)
-        nums = sorted(nums)
-        left = 0
-        right = 1
-        while right < n:
-            if nums[left] == nums[right]:
+        seen = set()
+        for num in nums:
+            if num in seen:
                 return True
             else:
-                left += 1
-                right += 1
+                seen.add(num) 
         return False            
+
             

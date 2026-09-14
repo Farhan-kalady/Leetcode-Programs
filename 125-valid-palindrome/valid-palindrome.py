@@ -8,6 +8,6 @@ class Solution(object):
         for ch in s:
             if ch.isalnum():
                 clean += ch.lower()
-        return clean == clean[::-1]        
+        return clean == clean[::-1]               
                 
         

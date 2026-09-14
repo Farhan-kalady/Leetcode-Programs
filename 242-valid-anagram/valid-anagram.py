@@ -1,9 +1,22 @@
-class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-       hash_s = {}
-       hash_t = {}
-       for ch in s:
-        hash_s[ch] = hash_s.get(ch, 0) + 1
-       for ch in t:
-        hash_t[ch] = hash_t.get(ch, 0) + 1
-       return hash_s == hash_t  
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t):
+            return False
+        char_freq = {}
+        for ch in s:
+            char_freq[ch] = char_freq.get(ch, 0) + 1
+        for ch in t:
+            if ch not in char_freq :
+                return False
+            else:
+                if char_freq[ch] == 0:
+                    return False
+                else:
+                    char_freq[ch] -= 1
+        return True                            
+        

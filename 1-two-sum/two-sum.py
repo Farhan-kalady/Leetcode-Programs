@@ -6,9 +6,11 @@ class Solution(object):
         :rtype: List[int]
         """
         hashmap = {}
-        for i, value in enumerate(nums):
-            need = target - nums[i]
-            if need in hashmap:
-                return [i, hashmap[need]]
-            else:    
-                hashmap[value] = i    
+        for index, value in enumerate(nums):
+            compliment = target - value
+            if compliment in hashmap:
+                return [index,hashmap[compliment]]
+            else:
+                hashmap[value] = index
+        return -1        
+           

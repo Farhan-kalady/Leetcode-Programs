@@ -1,12 +1,7 @@
-class Solution(object):
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        nums.sort()
-        n = len(nums)
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
         
-        return nums[n/2]
-        
-
+        my_dict = {}
+        for num in nums:
+            my_dict[num] = my_dict.get(num, 0)+1
+        return max(my_dict, key=my_dict.get)
